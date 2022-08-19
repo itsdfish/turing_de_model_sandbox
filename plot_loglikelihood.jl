@@ -117,7 +117,7 @@ LLs = map(
         βs) 
 
 
-plot(ψs, LLs, xlabel="β", ylabel="LL", label=false, grid=false)
+plot(βs, LLs, xlabel="β", ylabel="LL", label=false, grid=false)
 
 parms = p 
 ηs = range(.005, .5, length=50)
@@ -129,8 +129,7 @@ LLs = map(
         ηs) 
 
 
-plot(ψs, LLs, xlabel="η", ylabel="LL", label=false, grid=false)
-
+plot(ηs, LLs, xlabel="η", ylabel="LL", label=false, grid=false)
 
 parms = p 
 φs = range(0, 365, length=50)
@@ -142,4 +141,4 @@ LLs = map(
         φs) 
 
 
-plot(ψs, LLs, xlabel="φ", ylabel="LL", label=false, grid=false)
+plot(φs, LLs, xlabel="φ", ylabel="LL", label=false, grid=false)
