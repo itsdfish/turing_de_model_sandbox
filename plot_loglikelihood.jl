@@ -94,8 +94,8 @@ inc = diff(inc[:,end,:], dims=2)
 data = rand.(NegativeBinomial2.(ψ, inc))
 #scatter(data',legend = false);
 #plot!(inc', legend = false) 
-parms = p 
-ψs = range(.005, 1.0, length=50)
+parms = copy(p)  
+ψs = range(ψ *.8, ψ * 1.2, length=50)
 LLs = map(
         x -> begin 
         parms[1] = x
@@ -110,8 +110,8 @@ savefig("psi.png")
 
 
 
-parms = p 
-βs = range(.005, 1, length=100)
+parms = copy(p) 
+βs = range(β *.8, β * 1.2, length=100)
 LLs = map(
         x -> begin 
         parms[2] = x
@@ -124,8 +124,8 @@ plot(βs, LLs, xlabel="β", ylabel="LL", label=false, grid=false)
 vline!([β], color = :black, linestyle = :dash, label=false)
 savefig("beta.png")
 
-parms = p 
-ηs = range(.005, 1, length=100)
+parms = copy(p)  
+ηs = range(η * .8, η * 1.2, length=100)
 LLs = map(
         x -> begin 
                 parms[3] = x
@@ -139,8 +139,8 @@ vline!([η], color = :black, linestyle = :dash, label=false)
 savefig("eta.png")
 
 
-parms = p 
-φs = range(0, 365, length=100)
+parms = copy(p)  
+φs = range(φ * .8, φ * 1.2, length=100)
 LLs = map(
         x -> begin 
                 parms[4] = x

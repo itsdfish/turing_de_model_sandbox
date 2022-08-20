@@ -213,8 +213,7 @@ end
 # Define prior and fixed theta
 theta_fix = p[5:end]
 
-
-@model function turingmodel_mtk(prior, theta_fix, problem, n_age, n_level, solvsettings) 
+@model function turingmodel_mtk(prior, theta_fix, problem, n_age, n_level, solvsettings, obs_ts) 
     
     issuccess = true
 
@@ -264,7 +263,8 @@ model = turingmodel_mtk(prior,
                     problem_mtk,
                     n_age,
                     n_level, 
-                    solvsettings) | (obs_ts = data,);
+                    solvsettings,
+                    data)
                      
 retval, issuccess = model();
 
